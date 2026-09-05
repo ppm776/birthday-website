@@ -1,0 +1,128 @@
+/* Import fonts: Orbitron for sci-fi, Great Vibes for romance */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Great+Vibes&display=swap');
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  background: radial-gradient(circle at center, #1a0033, #0f0c29, #302b63, #24243e);
+  color: #ffb6f9;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Starfield background */
+.stars {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: -1;
+}
+.stars::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: transparent;
+  box-shadow:
+    50px 100px #fff,
+    200px 300px #ff69b4,
+    400px 150px #f0f,
+    600px 400px #ff0,
+    800px 200px #0ff,
+    1000px 500px #fff;
+  animation: moveStars 60s linear infinite;
+}
+@keyframes moveStars {
+  from { transform: translateY(0); }
+  to { transform: translateY(-1000px); }
+}
+
+/* Glitch romantic heading */
+h1.glitch {
+  text-align: center;
+  color: #ff69b4;
+  text-shadow: 0 0 10px #ff69b4, 0 0 20px #00fff7;
+  animation: flicker 2s infinite;
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Navigation */
+nav {
+  text-align: center;
+  margin: 20px 0;
+}
+nav a {
+  color: #fff;
+  background: #1f1c2c;
+  border: 1px solid #ff69b4;
+  padding: 8px 15px;
+  margin: 0 5px;
+  text-decoration: none;
+  border-radius: 20px; /* softer, romantic */
+  box-shadow: 0 0 10px #ff69b4;
+  transition: all 0.3s ease;
+}
+nav a:hover {
+  background: #ff69b4;
+  color: #000;
+  box-shadow: 0 0 20px #00fff7;
+}
+
+/* Countdown */
+#countdown {
+  text-align: center;
+  font-size: 1.6em;
+  margin-top: 20px;
+  text-shadow: 0 0 10px #ff69b4, 0 0 20px #00fff7;
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Gallery */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+.gallery img {
+  width: 300px; /* fixed romantic size */
+  height: auto;
+  margin: 15px;
+  border-radius: 15px;
+  border: 2px solid #ff69b4;
+  box-shadow: 0 0 20px #ff69b4, 0 0 40px #00fff7;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05) rotate(1deg);
+  box-shadow: 0 0 30px #00fff7, 0 0 50px #ff69b4;
+}
+
+/* Gallery */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+.gallery img {
+  width: 300px; /* fixed romantic size */
+  height: auto;
+  margin: 15px;
+  border-radius: 15px;
+  border: 2px solid #ff69b4;
+  box-shadow: 0 0 20px #ff69b4, 0 0 40px #00fff7;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05) rotate(1deg);
+  box-shadow: 0 0 30px #00fff7, 0 0 50px #ff69b4;
+}
+#bg-music {
+  display: none; /* hides the audio player */
+}

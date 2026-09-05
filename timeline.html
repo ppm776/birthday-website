@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Journey</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1 class="glitch" data-text="🕰️ Our Journey Together">🕰️ Our Journey Together</h1>
+  <nav>
+    <a href="index.html">Home</a> |
+    <a href="gallery.html">Photo Gallery</a> |
+    <a href="letter.html">Love Letter</a>
+  </nav>
+
+  <!-- Locked message -->
+  <div id="locked-message" style="display:none; text-align:center; margin-top:50px;"></div>
+
+  <!-- Page content -->
+  <div id="page-content" style="display:none;">
+    <div class="timeline">
+      <p><strong>14-Feb-2026:</strong> First time we met 💫</p>
+      <p><strong>18-May-2026:</strong> Engagement ceremony 💍</p>
+      <p><strong>08-Sep-2026:</strong> Celebrating your birthday with this surprise 🎉</p>
+    </div>
+  </div>
+
+  <script>
+    const unlockDateIST = new Date("2026-09-08T00:00:00+05:30").getTime();
+
+    function updateLockMessage() {
+      const now = new Date().getTime();
+      const distance = unlockDateIST - now;
+
+      if (distance <= 0) {
+        document.getElementById("page-content").style.display = "block";
+        document.getElementById("locked-message").style.display = "none";
+      } else {
+        document.getElementById("page-content").style.display = "none";
+        document.getElementById("locked-message").style.display = "block";
+
+        const days = Math.floor(distance / (1000*60*60*24));
+        const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+        const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+        const seconds = Math.floor((distance % (1000*60)) / 1000);
+
+        document.getElementById("locked-message").innerHTML =
+          `<h2>🔒 This journey will unlock on 8 Sept at midnight IST 💖✨</h2>
+           <p>⏳ Unlocks in ${days}d ${hours}h ${minutes}m ${seconds}s</p>`;
+      }
+    }
+
+    updateLockMessage();
+    setInterval(updateLockMessage, 1000);
+  </script>
+</body

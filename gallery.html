@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Photo Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1 class="glitch" data-text="📸 Our Memories Together">📸 Our Memories Together</h1>
+  <nav>
+    <a href="index.html">Home</a> |
+    <a href="letter.html">Love Letter</a> |
+    <a href="timeline.html">Our Journey</a>
+  </nav>
+
+  <!-- Locked message -->
+  <div id="locked-message" style="display:none; text-align:center; margin-top:50px;"></div>
+
+  <!-- Page content -->
+  <div id="page-content" style="display:none;">
+    <div class="gallery">
+      <a href="images/20260404_151157.jpg" class="lightbox">
+        <img src="images/20260404_151157.jpg" alt="Memory 2">
+      </a>
+      <a href="images/DSC_7212.JPG" class="lightbox">
+        <img src="images/DSC_7212.JPG" alt="Memory 1">
+      </a>
+      <a href="images/20260726_164904.jpg" class="lightbox">
+        <img src="images/20260726_164904.jpg" alt="Memory 3">
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const unlockDateIST = new Date("2026-09-08T00:00:00+05:30").getTime();
+
+    function updateLockMessage() {
+      const now = new Date().getTime();
+      const distance = unlockDateIST - now;
+
+      if (distance <= 0) {
+        document.getElementById("page-content").style.display = "block";
+        document.getElementById("locked-message").style.display = "none";
+      } else {
+        document.getElementById("page-content").style.display = "none";
+        document.getElementById("locked-message").style.display = "block";
+
+        const days = Math.floor(distance / (1000*60*60*24));
+        const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+        const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+        const seconds = Math.floor((distance % (1000*60)) / 1000);
+
+        document.getElementById("locked-message").innerHTML =
+          `<h2>🔒 This gallery will unlock on 8 Sept at midnight IST 💖✨</h2>
+           <p>⏳ Unlocks in ${days}d ${hours}h ${minutes}m ${seconds}s</p>`;
+      }
+    }
+
+    updateLockMessage();
+    setInterval(updateLockMessage, 1000);
+  </script>
+</body>
+</html>
